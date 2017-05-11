@@ -10,8 +10,19 @@ h1{
   margin: auto;
 }
 
+#player1{
+  position: fixed;
+  left: -250px;
+  top: 0;
+}
+#player2{
+  position: fixed;
+  right: -300px;
+  top: 0;
+}
+
 .square{
-  background-color: #FFF;
+  background-color: rgba(0,0,0,0);
   border: 2px solid #000;
   outline: none;
   width: 30%;
@@ -21,4 +32,9 @@ h1{
 
 .square:hover{
   background-color: yellow;
+}
+
+.winning-square{
+  background-color: magenta !important;
+  color: yellow;
 }
