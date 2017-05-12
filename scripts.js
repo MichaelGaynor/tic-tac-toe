@@ -107,14 +107,16 @@ function computerMove(currentPlayersSquares, opponentSquares){
         enemySquareNeeded.splice(enemySquareNeeded.indexOf(winningSquare),1);
       }
     }
-    if ((squareCount === 2)&&(opponentSquares.indexOf(neededSquare[0]) < -1)){
-      markSquare(squares[neededSquare[0]]);
+    if ((squareCount === 2)&&(squares[i].innerHTML !== "X")&&(squares[i].innerHTML !== "O")){
+      // markSquare(squares[neededSquare[0]]);
+      squares[neededSquare[0]].innerHTML = "O";
       enemySquareNeeded.splice(0,enemySquareNeeded.length);
       whosTurn = 1;
       break;
     }
-    else if (enemyCount === 2){
-      markSquare(squares[enemySquareNeeded[0]]);
+    else if ((enemyCount === 2)&&(squares[i].innerHTML !== "X")&&(squares[i].innerHTML !== "O")){
+      // markSquare(squares[enemySquareNeeded[0]]);
+      squares[neededSquare[0]].innerHTML = "O";
       enemySquareNeeded.splice(0,enemySquareNeeded.length);
       whosTurn = 1;
       break;
@@ -129,7 +131,8 @@ function computerMove(currentPlayersSquares, opponentSquares){
     while (!empty){
       for (let i = 0; i < squares.length; i++){
         if ((squares[i].innerHTML !== "X")&&(squares[i].innerHTML !== "O")){
-          markSquare(squares[i]);
+          // markSquare(squares[i]);
+          squares[neededSquare[0]].innerHTML = "O";
           empty = true;
           enemySquareNeeded.splice(0,enemySquareNeeded.length);
           whosTurn = 1;
@@ -174,6 +177,16 @@ function checkWin(currentPlayersSquares, whoJustWent){
     }
   }
 };
+
+
+// function checkInfiniteWin(currentPlayerSquares, boardLength, totalSquares){
+//   var winningLinesNumber = (boardLength * 2 ) + 2;
+//   var winningLines = []
+//   for (let i = 0; i < winningLinesNumber; i++){
+    
+//     winningLines.push()
+//   }
+// }
 
 
 function gameOver(whoJustWon,winningCombo){
